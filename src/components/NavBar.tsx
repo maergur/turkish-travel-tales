@@ -9,34 +9,38 @@ const NavBar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
-      // Close mobile menu on scroll if it's open
       if (isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
-    // Cleanup function to remove the listener
     return () => window.removeEventListener('scroll', handleScroll);
-    // Revert dependencies back to empty array to avoid potential re-run issues
-  }, [isMobileMenuOpen]); // Keep isMobileMenuOpen dependency to correctly read its value
+  }, [isMobileMenuOpen]);
+
+  const getNavBackgroundClasses = () => {
+    if (isMobileMenuOpen) {
+      return 'bg-white/80 backdrop-blur-md shadow-lg';
+    }
+    if (isScrolled) {
+      return 'bg-transparent md:bg-white/80 md:backdrop-blur-md md:shadow-lg';
+    }
+    return 'bg-transparent';
+  };
 
   return (
     <nav 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/80 backdrop-blur-md shadow-lg' 
-          : 'bg-transparent'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${getNavBackgroundClasses()}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-between transition-all duration-300 h-20`}>
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <div className="flex items-center">
-                <span className={`ml-2 text-3xl font-bold font-sans ${
-                  isScrolled ? 'text-turquoise-dark' : 'text-white'
-                }`}>
+                <span className={`ml-2 text-3xl font-bold font-sans text-white 
+                  ${isMobileMenuOpen ? 'text-turquoise-dark' : ''} 
+                  ${isScrolled ? 'md:text-turquoise-dark' : ''}
+                `}>
                   EGE TOUR
                 </span>
               </div>
@@ -50,11 +54,9 @@ const NavBar = () => {
                 <a
                   key={item}
                   href={`#${item === 'About Us' ? 'about' : item === 'Tour Packages' ? 'packages' : item.toLowerCase().replace(' ', '-')}`}
-                  className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                    isScrolled
-                      ? 'text-gray-600 hover:text-turquoise'
-                      : 'text-white/80 hover:text-white'
-                  }`}
+                  className={`px-3 py-2 text-sm font-medium transition-colors duration-200 text-white/80 hover:text-white 
+                    ${isMobileMenuOpen || isScrolled ? 'md:text-gray-600 md:hover:text-turquoise' : ''}
+                  `}
                 >
                   {item}
                 </a>
@@ -62,9 +64,9 @@ const NavBar = () => {
               <a href="#contact">
                 <Button 
                   variant="default" 
-                  className={`bg-turquoise hover:bg-turquoise-dark text-white rounded-full transition-all duration-300 transform hover:scale-105 ${
-                    isScrolled ? 'shadow-md' : ''
-                  }`}
+                  className={`bg-turquoise hover:bg-turquoise-dark text-white rounded-full transition-all duration-300 transform hover:scale-105 
+                    ${isMobileMenuOpen || isScrolled ? 'md:shadow-md' : ''}
+                  `}
                 >
                   Contact Us
                 </Button>
@@ -76,9 +78,9 @@ const NavBar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors ${
-                isScrolled ? 'text-gray-600 hover:text-gray-900' : 'text-white'
-              }`}
+              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors text-white 
+                ${isMobileMenuOpen ? 'text-gray-600 hover:text-gray-900' : ''}
+              `}
             >
               {isMobileMenuOpen ? (
                 <X className="h-6 w-6" />
