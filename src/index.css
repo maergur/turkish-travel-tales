@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,79 +8,61 @@
   :root {
     --background: 46 33% 97%;
     --foreground: 210 20% 15%;
-
     --card: 0 0% 100%;
     --card-foreground: 210 20% 15%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 210 20% 15%;
-
     --primary: 187 74% 40%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 0 20% 58%;
     --secondary-foreground: 0 0% 100%;
-
     --muted: 210 10% 92%;
     --muted-foreground: 210 10% 40%;
-
     --accent: 187 30% 94%;
     --accent-foreground: 187 74% 40%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 187 74% 40%;
-
-    --radius: 0.5rem;
+    --radius: 1rem;
   }
 
-  .dark {
-    --background: 210 30% 8%;
-    --foreground: 210 20% 98%;
-
-    --card: 210 30% 12%;
-    --card-foreground: 210 20% 98%;
-
-    --popover: 210 30% 12%;
-    --popover-foreground: 210 20% 98%;
-
-    --primary: 187 74% 35%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 0 20% 58%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 210 30% 20%;
-    --muted-foreground: 210 20% 60%;
-
-    --accent: 187 30% 24%;
-    --accent-foreground: 187 74% 60%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 210 30% 18%;
-    --input: 210 30% 18%;
-    --ring: 187 74% 35%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Montserrat', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
   }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-turquoise-light to-turquoise bg-clip-text text-transparent;
+  }
+}
+
+.btn-hover-effect {
+  @apply relative overflow-hidden transition-all duration-300 transform hover:scale-105;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg;
 }
 
 .hero-pattern {
