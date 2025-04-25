@@ -9,11 +9,17 @@ const NavBar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      // Close mobile menu on scroll if it's open
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    // Cleanup function to remove the listener
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    // Revert dependencies back to empty array to avoid potential re-run issues
+  }, [isMobileMenuOpen]); // Keep isMobileMenuOpen dependency to correctly read its value
 
   return (
     <nav 
@@ -24,7 +30,7 @@ const NavBar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'h-16' : 'h-20'}`}>
+        <div className={`flex items-center justify-between transition-all duration-300 h-20`}>
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <div className="flex items-center">
