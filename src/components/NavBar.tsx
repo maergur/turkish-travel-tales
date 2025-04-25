@@ -38,9 +38,14 @@ const NavBar = () => {
             <div className="flex-shrink-0">
               {/* Logo container - hide if scrolled AND mobile menu is closed */}
               <div className={`flex items-center ${isScrolled && !isMobileMenuOpen ? 'hidden' : ''}`}>
-                <span className={`ml-2 text-3xl font-bold font-sans text-white 
-                  ${isMobileMenuOpen ? 'text-turquoise-dark' : ''} 
-                  ${isScrolled ? 'md:text-turquoise-dark' : ''}
+                {/* Logo text color: Black if menu open; otherwise white (mobile) or turquoise (desktop scrolled) */}
+                <span className={`ml-2 text-3xl font-bold font-sans 
+                  ${isMobileMenuOpen 
+                    ? 'text-gray-900' 
+                    : isScrolled 
+                      ? 'md:text-turquoise-dark text-white' 
+                      : 'text-white'
+                  }
                 `}>
                   EGE TOUR
                 </span>
