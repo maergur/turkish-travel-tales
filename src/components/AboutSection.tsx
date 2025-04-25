@@ -1,4 +1,5 @@
 import { Globe, MapPin, Clock, Star } from 'lucide-react';
+import pamukkaleImage from '@/img/pamukkale.jpg';
 
 const AboutSection = () => {
   const features = [
@@ -28,7 +29,7 @@ const AboutSection = () => {
     <section id="about" className="py-20 bg-gradient-to-br from-white to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Welcome to Ege Tour</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Welcome to Ege Tour!</h2>
           <div className="w-24 h-1 bg-turquoise mx-auto mb-6"></div>
           <p className="text-lg max-w-3xl mx-auto">
             With over 35 years of experience, we specialize in creating unforgettable journeys across Türkiye's diverse landscapes, rich history, and vibrant culture.
@@ -38,7 +39,7 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="relative">
             <img 
-              src="./src/img/pamukkale.jpg"
+              src={pamukkaleImage}
               alt="Turkish landscape" 
               className="rounded-lg shadow-lg w-full h-auto object-cover"
             />
