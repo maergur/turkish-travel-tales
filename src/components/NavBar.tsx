@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Globe, Menu, X } from 'lucide-react';
@@ -29,11 +28,10 @@ const NavBar = () => {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <div className="flex items-center">
-                <Globe className={`h-8 w-8 ${isScrolled ? 'text-turquoise' : 'text-white'}`} />
-                <span className={`ml-2 text-xl font-bold font-serif ${
+                <span className={`ml-2 text-3xl font-bold font-sans ${
                   isScrolled ? 'text-turquoise-dark' : 'text-white'
                 }`}>
-                  Turkish Travel Tales
+                  EGE TOUR
                 </span>
               </div>
             </div>
@@ -45,7 +43,7 @@ const NavBar = () => {
               {['Home', 'About Us', 'Tour Packages', 'Testimonials'].map((item) => (
                 <a
                   key={item}
-                  href={`#${item.toLowerCase().replace(' ', '-')}`}
+                  href={`#${item === 'About Us' ? 'about' : item === 'Tour Packages' ? 'packages' : item.toLowerCase().replace(' ', '-')}`}
                   className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                     isScrolled
                       ? 'text-gray-600 hover:text-turquoise'
@@ -94,7 +92,7 @@ const NavBar = () => {
           {['Home', 'About Us', 'Tour Packages', 'Testimonials', 'Contact Us'].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase().replace(' ', '-')}`}
+              href={`#${item === 'About Us' ? 'about' : item === 'Contact Us' ? 'contact' : item === 'Tour Packages' ? 'packages' : item.toLowerCase().replace(' ', '-')}`}
               className="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-turquoise hover:text-white transition-all duration-200"
               onClick={() => setIsMobileMenuOpen(false)}
             >

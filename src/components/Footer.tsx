@@ -1,5 +1,5 @@
-
 import { Globe, Mail, Phone, MapPin, Instagram, Facebook, Twitter, Youtube } from 'lucide-react';
+import egeTourLogo from '@/img/ege-tour-logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -120,6 +120,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 py-6 text-center text-gray-400 text-sm">
+          <img src={egeTourLogo} alt="Ege Tour Logo" className="h-12 w-auto mx-auto mb-4" />
           <p>© {currentYear} Turkish Travel Tales. All rights reserved.</p>
           <div className="mt-2 flex justify-center space-x-4">
             <a href="#" className="hover:text-turquoise-light transition-colors">

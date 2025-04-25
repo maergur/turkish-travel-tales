@@ -1,10 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import { Map, Compass } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0">
         <video
@@ -26,8 +25,8 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight">
-            Discover the Magic of{" "}
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white tracking-tight">
+            Discover the Magic of {" "}
             <span className="bg-gradient-to-r from-turquoise-light to-turquoise bg-clip-text text-transparent">
               Türkiye
             </span>
