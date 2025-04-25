@@ -36,7 +36,8 @@ const NavBar = () => {
         <div className={`flex items-center justify-between transition-all duration-300 h-20`}>
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <div className="flex items-center">
+              {/* Logo container - hide when scrolled */}
+              <div className={`flex items-center ${isScrolled ? 'hidden' : ''}`}>
                 <span className={`ml-2 text-3xl font-bold font-sans text-white 
                   ${isMobileMenuOpen ? 'text-turquoise-dark' : ''} 
                   ${isScrolled ? 'md:text-turquoise-dark' : ''}
@@ -78,8 +79,13 @@ const NavBar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors text-white 
-                ${isMobileMenuOpen ? 'text-gray-600 hover:text-gray-900' : ''}
+              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors 
+                ${isMobileMenuOpen 
+                  ? 'text-gray-600 hover:text-gray-900' 
+                  : isScrolled 
+                    ? 'text-gray-900' 
+                    : 'text-white'
+                }
               `}
             >
               {isMobileMenuOpen ? (
