@@ -36,8 +36,8 @@ const NavBar = () => {
         <div className={`flex items-center justify-between transition-all duration-300 h-20`}>
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              {/* Logo container - hide if scrolled AND mobile menu is closed */}
-              <div className={`flex items-center ${isScrolled && !isMobileMenuOpen ? 'hidden' : ''}`}>
+              {/* Logo container - hide if scrolled AND mobile menu is closed (mobile only) */}
+              <div className={`flex items-center ${isScrolled && !isMobileMenuOpen ? 'hidden md:flex' : ''}`}>
                 {/* Logo text color: Black if menu open; otherwise white (mobile) or turquoise (desktop scrolled) */}
                 <span className={`ml-2 text-3xl font-bold font-sans 
                   ${isMobileMenuOpen 
