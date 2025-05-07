@@ -32,7 +32,7 @@ const AboutSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Welcome to Ege Tour!</h2>
           <div className="w-24 h-1 bg-turquoise mx-auto mb-6"></div>
           <p className="text-lg max-w-3xl mx-auto">
-            With over 35 years of experience, we specialize in creating unforgettable journeys across Türkiye's diverse landscapes, rich history, and vibrant culture.
+            With over <span className="font-bold">35 years of experience</span>, we specialize in creating unforgettable journeys across Türkiye's diverse landscapes, rich history, and vibrant culture.
           </p>
         </div>
 

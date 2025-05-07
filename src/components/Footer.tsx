@@ -1,40 +1,16 @@
 import { Globe, Mail, Phone, MapPin, Instagram, Facebook, Twitter, Youtube } from 'lucide-react';
-import egeTourLogo from '@/img/ege-tour-logo.png';
+import egeTourLogo from '@/img/ege-tour-white-nobg.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
     <footer className="bg-gray-900 text-white">
+      
       <div className="container mx-auto px-4">
+        
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
-            <div className="flex items-center mb-4">
-              <Globe className="h-6 w-6 text-turquoise-light" />
-              <span className="ml-2 text-xl font-bold font-serif text-white">
-                Turkish Travel Tales
-              </span>
-            </div>
-            <p className="text-gray-400 mb-6">
-              Crafting unforgettable journeys across the diverse landscapes of Türkiye since 2008.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-turquoise-light transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-turquoise-light transition-colors">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-turquoise-light transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-turquoise-light transition-colors">
-                <Youtube className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-          
-          <div>
+        <div className="ml-16">
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
@@ -64,8 +40,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
-          <div>
+          <div className="ml-16">
             <h3 className="text-lg font-bold mb-4">Our Tours</h3>
             <ul className="space-y-2">
               <li>
@@ -95,6 +70,17 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+          <div>
+              <span className="flex justify-center">
+              <img src={egeTourLogo} alt="Ege Tour Logo" className="h-48 w-48 mr-8" />
+
+              </span>
+            
+          </div>
+          
+         
+          
+        
           
           <div>
             <h3 className="text-lg font-bold mb-4">Contact Info</h3>
@@ -118,10 +104,12 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+        <p className="text-gray-400 text-center mb-6">
+              Crafting unforgettable journeys across the diverse landscapes of Türkiye since 1989.
+            </p>
         
         <div className="border-t border-gray-800 py-6 text-center text-gray-400 text-sm">
-          <img src={egeTourLogo} alt="Ege Tour Logo" className="h-12 w-auto mx-auto mb-4" />
-          <p>© {currentYear} Turkish Travel Tales. All rights reserved.</p>
+          <p>© {currentYear} Ege Tour. All rights reserved.</p>
           <div className="mt-2 flex justify-center space-x-4">
             <a href="#" className="hover:text-turquoise-light transition-colors">
               Privacy Policy
@@ -135,6 +123,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      
     </footer>
   );
 };

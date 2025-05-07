@@ -13,22 +13,12 @@ export interface TourPackage {
 export const tourPackages: TourPackage[] = [
   {
     id: 1,
-    title: "Istanbul Heritage Tour",
+    title: "Mystery of Türkiye",
     location: "Istanbul",
     description: "Explore the historic wonders of Istanbul including the Hagia Sophia, Blue Mosque, and Topkapı Palace.",
     price: 499,
-    duration: "5 days",
+    duration: "10 days",
     imageUrl: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1336&q=80",
-    featured: true
-  },
-  {
-    id: 2,
-    title: "Cappadocia Hot Air Balloon Adventure",
-    location: "Cappadocia",
-    description: "Experience the magical landscapes of Cappadocia from above with our premium hot air balloon tour.",
-    price: 799,
-    duration: "4 days",
-    imageUrl: "https://images.unsplash.com/photo-1570654121453-9771cea243ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80",
     featured: true
   },
   {
